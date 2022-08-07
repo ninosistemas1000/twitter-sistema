@@ -8,6 +8,7 @@ import (
 )
 
 func GeneroJWT(t models.Usuario) (string, error) {
+
 	miClave := []byte("MastersdelDesarrollo_grupodeFacebook")
 
 	payload := jwt.MapClaims{

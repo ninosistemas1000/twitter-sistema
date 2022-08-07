@@ -24,11 +24,12 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "El email del usuario es requerido", 400)
 		return
 	}
-	documento, existe := bd.IntentoLogin(t.Email, t.Password)
-	if existe == false {
-		http.Error(w, "usuario y/o contraseña invalidos error", 400)
-		return
-	}
+
+	documento, _ := bd.IntentoLogin(t.Email, t.Password)
+	//if existe == false {
+	//	http.Error(w, "usuario y/o contraseña invalidos error", 400)
+	//	return
+	//}
 
 	jwtKey, err := jwt.GeneroJWT(documento)
 	if err != nil {
